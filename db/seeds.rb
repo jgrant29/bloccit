@@ -6,7 +6,10 @@ require 'faker'
     body:   Faker::Lorem.paragraph
   )
 end
+
 posts = Post.all
+
+
 
 # Create Comments
 
