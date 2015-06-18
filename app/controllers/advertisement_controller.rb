@@ -1,9 +1,9 @@
 class AdvertisementController < ApplicationController
   def index
-    @advertisements = Advertisement.all
+    @advertisement = Advertisement.all
   end
 
   def show
-    @advertisements = Advertisement.find(params[:id])
+    @advertisement = Advertisement.find(params[:id])
   end
 end
