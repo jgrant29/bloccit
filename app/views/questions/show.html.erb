@@ -1,0 +1,12 @@
+<h1>Questions#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+<h1><%= @question.title %></h1>
+
+<%= check_box_tag "question", @question %><br>
+
+<%= link_to "Edit", edit_question_path(@question), class: 'btn btn-success' %>
+<%= link_to 'Delete', question_path(@question), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-success'%>
+
+
+<p><%= @question.body %></p>
