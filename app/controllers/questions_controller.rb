@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params.require(:question).permit(:title, :body, :resolved))
+    @question = Question.new(params.require(:question).permit(:title, :body))
     if @question.save
       flash[:notice] = "Question was saved"
       redirect_to @question
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def update
      @question = Question.find(params[:id])
-     if @question.update_attributes(params.require(:question).permit(:title, :body, :resolved))
+     if @question.update_attributes(params.require(:question).permit(:title, :body))
        flash[:notice] = "Question was updated."
        redirect_to @question
      else
@@ -55,9 +55,13 @@ class QuestionsController < ApplicationController
    end
 
    def resolved
-    #mark selected tasks as complete
-    redirect_to index_path
     @question = Question.update(params[:id])
+    if @question.update_attributes(params[:resolved])
+      flash[:notice] = "Marked was Resolved."
+      redirect_to @question
+    else
+      flash[:error] = "That didn't work"
+      render :edit
+    end
   end
-
 end
