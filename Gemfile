@@ -14,6 +14,8 @@ gem 'rails', '4.2.1'
  end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#Use Bootstrap for theme
+gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -52,8 +54,7 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'bootstrap-sass'
-
-
 gem 'pry-rails', :group => :development
+
+gem 'devise'
 
