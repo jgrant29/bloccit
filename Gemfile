@@ -55,9 +55,8 @@ group :development, :test do
 end
 
 gem 'pry-rails', :group => :development
-
 gem 'devise'
-
 gem 'figaro', '1.0'
+gem 'pundit'
 
 
