@@ -15,7 +15,8 @@ class PostPolicy < ApplicationPolicy
       if user.admin? || user.moderator?
         scope.all
       else
-        render :questions
+        flash[:error] = "There was an error saving the post. Please try again."
+       render :edit
       end
     end
 
