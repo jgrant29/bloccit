@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :flash_attack, only: [:index, :new]
 
   def index
-    @posts = policy_scope(Post)
+    @posts = Post.all
     authorize @posts
   end
 
@@ -24,9 +24,9 @@ class PostsController < ApplicationController
     else
       flash[:error] = "There was an error saving the post.  Please try again."
       render :new
-    end 
+    end
   end
-  
+
  def edit
      @post = Post.find(params[:id])
      authorize @post

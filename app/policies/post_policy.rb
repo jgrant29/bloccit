@@ -11,14 +11,14 @@ class PostPolicy < ApplicationPolicy
       @scope = scope
     end
 
-    def resolve
-      if user.admin? || user.moderator?
-        scope.all
-      else
-        flash[:error] = "There was an error saving the post. Please try again."
-       render :edit
-      end
-    end
+    # def resolve
+    #   if user.admin? || user.moderator?
+    #     scope.all
+    #   else
+    #     flash[:error] = "There was an error saving the post. Please try again."
+    #    render :edit
+    #   end
+    # end
 
   end
 
