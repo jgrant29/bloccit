@@ -1,9 +1,9 @@
 <h1>All Posts</h1>
-<% if policy(Post.new).create? %>
+<% if policy(Post).create? %>
 <%= link_to "New Post", new_post_path, class: 'btn btn-success' %> 
 <% end %>
 
-<% @posts.each do |post| %>
+ <% @posts.each do |post| %>
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
@@ -15,4 +15,5 @@
         </small>
         </div>
         </div>
+        <p> you are not authorized </p>
   <% end %>

@@ -39,8 +39,7 @@ class PostsController < ApplicationController
        flash[:notice] = "Post was updated."
        redirect_to @post
      else
-       flash[:error] = "There was an error saving the post. Please try again."
-       render :edit
+       scope.where(user: user)
      end
    end
 end
