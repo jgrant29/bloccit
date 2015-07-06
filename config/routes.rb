@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :advertisement
-  resources :posts
   resources :questions
+  
+  resources :topics do 
+    resources :posts, except: [:index]
+  end
 
   get 'about' => 'welcome#about'
 
