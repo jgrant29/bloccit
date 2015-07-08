@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # https://serene-reef-1873.herokuapp.com/users
-  config.action_mailer.default_url_options = { host: 'https://serene-reef-1873.herokuapp.com/users' }
+  config.action_mailer.default_url_options = { host: 'serene-reef-1873.herokuapp.com/users' }
 end
