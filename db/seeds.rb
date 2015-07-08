@@ -24,7 +24,8 @@ topics = Topic.all
 15.times do 
   Summary.create!(
     name:         Faker::Lorem.sentence,
-    description:  Faker::Lorem.paragraph
+    description:  Faker::Lorem.paragraph,
+    post_id:      post.sample
     )
 end
 summary = Summary.all

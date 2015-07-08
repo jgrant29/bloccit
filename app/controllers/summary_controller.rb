@@ -1,8 +1,8 @@
 class SummariesController < ApplicationController
 
-def show
-    @summary = Summary.all
- 
+  def show
+    @summary = Summary.find(params[:id])
+    @post = Post.find(params[:post_id])
   end
 
   def new

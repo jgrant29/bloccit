@@ -11,8 +11,13 @@
     <div class="media">
       <div class="media-body">
         <h4 class="media-heading">
-          <%= link_to post.title, [@topic, post, @summary] %>
+          <%= link_to post.title, [@topic, post] %>
         </h4>
+        <h5>
+          <% if post.summary.present? %>
+            <%= post.summary.description %>
+          <% end %>
+        </h5>
         <small>
           submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
           <%= post.comments.count %> Comments
