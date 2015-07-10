@@ -21,16 +21,6 @@ users = User.all
 end
 topics = Topic.all
 
-15.times do 
-  Summary.create!(
-    name:         Faker::Lorem.sentence,
-    description:  Faker::Lorem.paragraph,
-    post_id:      post.sample
-    )
-end
-summary = Summary.all
-
-
 50.times do 
   Post.create!(
     user:   users.sample,
