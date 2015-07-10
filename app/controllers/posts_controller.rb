@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = Post.new(params[:id])
     authorize @post
 
       if @post = Post.new(post.params)
