@@ -8,6 +8,8 @@ default_scope { order('created_at DESC') }
 scope :ordered_by_title, -> { order('title DESC') }
 scope :ordered_by_reverse_order, -> { order('created_at ASC') }
 
-  validates_uniqueness_of :title
-  validates_uniqueness_of :body
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 end
