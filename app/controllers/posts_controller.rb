@@ -15,7 +15,8 @@ class PostsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+    @post.topic = @topic
     authorize @post
     if @post.save
       flash[:notice] = "Post was saved"
@@ -41,7 +42,20 @@ class PostsController < ApplicationController
        flash[:notice] = "Post was updated."
        redirect_to [@topic, @post]
      else
-       scope.where(user: user)
+       flash[:error] = "There was an erro saving the post.  Plesee try again."
+       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.destroy
+      flash[:notice] = "Post \"#{@post.title}\" was sucessfully deleted"
+      redirect_to @topic
+    else
+      flash[:error] = "There was an error deleting the post."
     end
   end
 
