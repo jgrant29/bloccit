@@ -11,6 +11,7 @@
     <div class="media">
       <div class="media-body">
         <h4 class="media-heading">
+          <%= image_tag(post.image.tiny.url) if post.image? %>
           <%= link_to post.markdown_title, [@topic, post] %>
         </h4>
         <h5>
@@ -19,8 +20,8 @@
           <% end %>
         </h5>
         <small>
-          <%+ image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
-          submitted <%+ time_ago_in_words(post.created_at) %> ago by
+          <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+          submitted <%= time_ago_in_words(post.created_at) %> ago by
           <%= post.user.name %>
         </small>
       </div>
