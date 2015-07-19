@@ -21,6 +21,13 @@ users = User.all
 end
 topics = Topic.all
 
+#creat comments
+10.times do
+  Comment.create!(
+    body:  Faker::Lorem.sentence
+    )
+end
+comments = Comment.all
 
 1000.times do 
   Post.create!(
@@ -79,6 +86,7 @@ member.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Comment.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisement created"

@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   skip_before_action :flash_attack, only: [:index, :new]
 
   def show
+    @comments = Comment.new
     @post = Post.find(params[:id])
-    @topic = Topic.find(params[:topic_id])
- 
+    @topic = Topic.find(params[:topic_id]) 
   end
 
   def new
@@ -62,6 +62,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :comment)
   end
 end

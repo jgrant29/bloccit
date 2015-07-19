@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
     resources :users, only: [:update, :show]
   resources :advertisement
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :topics do 
     resources :posts, :summaries, except: [:index]
+      resources only: [:comments]
   end
 
   get 'about' => 'welcome#about'

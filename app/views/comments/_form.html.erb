@@ -1,0 +1,11 @@
+<%= form_for comment do |f| %>
+  <%= form_group_tag(post.comment.new) do %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: 'Enter comment' %>
+  </div>
+  <div class="form-group"> 
+    <%= f.sumbit "Save", class: "btn btn-success" %>
+  </div>
+<% end %> 
+<% end %>
