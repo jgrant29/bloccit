@@ -10,13 +10,21 @@
     </small>
     <p><%= @post.markdown_body %></p>
   </div>
-  <div class="col-md-8">
-    <%= render @comments %>
-    </div>
 
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %> 
     <% end %>
   </div>
-</div>
+
+  <div class="col-md-8">
+    
+    <%= render 'comments/comment', locals: {comment: @comment} %>
+    <% if policy(Comment.new).create? %>
+      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post} %>
+    <% else %>
+      <h3>Sign up to Bloccit to post comments</h3>
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %></br></br>
+    <% end %>
+  </div>
+  </div>

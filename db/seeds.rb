@@ -21,15 +21,7 @@ users = User.all
 end
 topics = Topic.all
 
-#creat comments
-10.times do
-  Comment.create!(
-    body:  Faker::Lorem.sentence
-    )
-end
-comments = Comment.all
-
-1000.times do 
+10000.times do 
   Post.create!(
     user:   users.sample,
     topic:  topics.sample,
@@ -39,21 +31,14 @@ comments = Comment.all
 end
 posts = Post.all
 
-100.times do 
+10000.times do 
   Comment.create!(
-    # user: users.sample,  #we have not yet associated Users with Comments
-    post: posts.sample, 
-    body: Faker::Lorem.paragraph
+    user:  users.sample,
+    post:  posts.sample,
+    body:  Faker::Lorem.paragraph
   )
 end
-
-10.times do 
-  Advertisement.create!(
-    title: Faker::Internet.domain_name,
-    copy: Faker::Company.catch_phrase,
-    price: 0
-  )
-end
+comments = Comment.all
 
 # Create an admin user
 admin = User.new(
@@ -85,8 +70,7 @@ member.skip_confirmation!
 member.save!
 
 puts "Seed finished"
+puts "#{Topic.count} topics created"
 puts "#{User.count} users created"
-puts "#{Comment.count} users created"
+puts "#{Comment.count} comment created"
 puts "#{Post.count} posts created"
-puts "#{Comment.count} comments created"
-puts "#{Advertisement.count} advertisement created"
