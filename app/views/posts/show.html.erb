@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <small>
-      <%= image_tag(@post.image.thumb.url) if @post.image? %>
+      <%= image_tag(@post.image.thumb.url) if @post.image? %></br>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.name %>
@@ -15,16 +15,18 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %> 
     <% end %>
+    <% if policy(@post).destroy? %>
+      <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete this post?" }  %>
+      <% end %>
   </div>
 
   <div class="col-md-8">
-    
-    <%= render 'comments/comment', locals: {comment: @comment} %>
-    <% if policy(Comment.new).create? %>
+    <% if policy(@comments).create? %>
+      <%= render partial: 'comments/comment', locals: { post: @post, comment: @comment } %>
       <%= render partial: 'comments/form', locals: {topic: @topic, post: @post} %>
     <% else %>
       <h3>Sign up to Bloccit to post comments</h3>
       <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %></br></br>
     <% end %>
-  </div>
+   </div>
   </div>

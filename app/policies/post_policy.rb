@@ -3,6 +3,10 @@ class PostPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    user.present?  && (record.user == user || user.admin? || user.moderator? || user.guest?)
+  end
+
   class Scope
     attr_reader :user, :scope
 

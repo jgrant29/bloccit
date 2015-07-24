@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   has_one :summary
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

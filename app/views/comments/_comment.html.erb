@@ -1,6 +1,22 @@
-<h1>Comments</h1>
-<ul>
-  <% @post.comments.each do |c| %>
-    <li><%= c.body %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @post.comments.each do |c| %>
+      
+  <div class="media">
+  <div class="media-left">
+    <%= image_tag(c.user.avatar.small.url, class: "media-object") if c.user.avatar? %>
+  </div>
+  <div class="media-body">
+    <small>
+      <%= c.user.name %> commented <%= time_ago_in_words(c.created_at) %> ago
+      <% if policy(c).destroy? %>
+        | <%= link_to "Delete", [@topic, @post, c], method: :delete %>
+      <% end %>
+    </small>
+  <li>
+    <p><%= c.body %></p>
+  </li>
+    </div>
+    <% end %>
+    </ul>
+
+    
