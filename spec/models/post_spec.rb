@@ -4,7 +4,7 @@ require 'rails_helper'
     describe "vote methods" do
 
     before do
-      @post = Post.create(title:  'post title', body: 'post body')
+      @post = Post.create(title:  'post title', body: 'post body is supposed to be super dooper long')
       3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }    
     end
@@ -26,6 +26,5 @@ require 'rails_helper'
         expect( @post.points ).to eq(1) # 3 - 2
       end
     end
-
   end
 end

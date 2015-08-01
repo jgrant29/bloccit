@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def update
-    if current_user.update_attributes(user_params)
+    @user = current_user.update_attributes(user_params)
+
+    if current_user.errors.blank?
       flash[:notice] = "User information updated"
       redirect_to edit_user_registration_path
     else

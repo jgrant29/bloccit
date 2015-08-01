@@ -13,7 +13,7 @@ end
 users = User.all
 
 #create Topics
-1000.times do 
+100.times do 
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
@@ -21,17 +21,20 @@ users = User.all
 end
 topics = Topic.all
 
-10000.times do 
-  Post.create!(
+1000.times do 
+  post = Post.create!(
     user:   users.sample,
     topic:  topics.sample,
     title:  Faker::Lorem.sentence, 
     body:   Faker::Lorem.paragraph
   )
+
+  post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+  post.update_rank
 end
 posts = Post.all
 
-10000.times do 
+1000.times do 
   Comment.create!(
     user:  users.sample,
     post:  posts.sample,
