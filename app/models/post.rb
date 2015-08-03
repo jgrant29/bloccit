@@ -47,6 +47,13 @@ scope :ordered_by_reverse_order, -> { order('created_at ASC') }
     user.votes.create(value: 1, post: self)
   end
 
+  def save_with_inital_vote
+    ActiveRecord::Base.transaction do
+      user.votes.create(value: 1, post: self)
+      post.save
+    end
+  end
+
   private 
 
   def render_as_markdown(markdown)
