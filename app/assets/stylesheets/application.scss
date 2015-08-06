@@ -2,37 +2,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.vote-arrows {
-  width: 40px;
-  text-align: center;
-}
-
-.user-info {
-  margin: 8px;
-
-}
-
-.nav {
-  margin: 5px;
-}
-
-.social-btn {
-  position:relative;
-  left:25%;
-  right:25%;
-  top: 50px;
-  display:block;
-  height: 3em;
-  width:10em;
-  border: 5px solid #31CCB2;
-  background-color: #fff;
-  text-align: center;
-  padding:15px;
-  font-size:25px;
-  color:#31CCB2;
-  &:hover {
-  background-color: #31CCB2;
-  border:5px solid #415866;
-  color:#415866;
+  .vote-arrows {
+    width: 40px;
+    text-align: center;
   }
-}
+  
+  .user-info {
+    margin: 5px;
+  }
+  
+  .nav {
+    margin: 5px;
+  }
+
+  .favorite {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .social-btn {
+    position:relative;
+    left:25%;
+    right:25%;
+    top: 50px;
+    display:block;
+    height: 3em;
+    width:10em;
+    border: 5px solid #31CCB2;
+    background-color: #fff;
+    text-align: center;
+    padding:15px;
+    font-size:25px;
+    color:#31CCB2;
+    &:hover {
+    background-color: #31CCB2;
+    border:5px solid #415866;
+    color:#415866;
+      }
+    }
+

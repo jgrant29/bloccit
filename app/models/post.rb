@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_one :summary
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
