@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError do |exception|
      redirect_to root_url, alert: exception.message
    end
+
+  def after_sign_in_path_for(resource)
+    topics_path
+  end
   
   protected
 
@@ -15,7 +19,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
   end
 
-   def flash_attack
+  def flash_attack
       flash[:alert] = "Have fun!"
   end
 end
