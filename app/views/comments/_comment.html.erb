@@ -1,19 +1,20 @@
+  <h3>Comments</h3>
   <ul>
-    <% @post.comments.each do |c| %>
+    <% @comments.each do |comment| %>
       
-  <%= content_tag :div, class: 'media', id: "comment-#{c.id}" do %>
+  <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
   <div class="media-left">
-    <%= image_tag(c.user.avatar.small.url, class: "media-object") if c.user.avatar? %>
+    <%= image_tag(comment.user.avatar.small.url, class: "media-object") if comment.user.avatar? %>
   </div>
   <div class="media-body">
     <small>
-      <%= c.user.name %> commented <%= time_ago_in_words(c.created_at) %> ago
-      <% if policy(c).destroy? %>
-        | <%= link_to "Delete", [@post, c], method: :delete %>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [comment.post, comment], method: :delete %>
       <% end %>
     </small>
   <li>
-    <p><%= c.body %></p>
+    <p><%= comment.body %></p>
   </li>
     <% end %>
     <% end %>
