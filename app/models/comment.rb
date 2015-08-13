@@ -7,6 +7,7 @@ class Comment < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
   validates :post, presence: true
   validates :user, presence: true
+  scope :ordered_by_reverse_order, -> { order('created_at ASC') }
 
   after_create :send_favorite_emails
 
