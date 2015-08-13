@@ -66,6 +66,11 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'newrelic_rpm'
 
+#install puma webserver 
+group :development, :production do
+    gem 'puma'
+end
+
 #intall-rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
