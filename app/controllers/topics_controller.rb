@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @topics = Topic.visible_to(current_user).paginate(page: params[:page])
     authorize @topics
