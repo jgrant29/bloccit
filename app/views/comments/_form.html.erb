@@ -1,6 +1,6 @@
 <h3>Add a comment</h3>
-<%= form_for [post, post.comments.new] do |f| %>
-  <%= form_group_tag(post.comments.new.errors[:body]) do %>
+<%= form_for [@post, Comment.new], remote: true do |f| %>
+  <%= form_group_tag(@post.comments.new.errors[:body]) do %>
     <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body, rows: 2, class: 'form-control', placeholder: 'Enter comment' %>

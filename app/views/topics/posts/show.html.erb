@@ -31,9 +31,13 @@
 
   <div class="col-md-8">
       <h3>Comments</h3>
+      <div class='js-comments'>
     <% if policy(@comments).create? %>
       <%= render partial: 'comments/comment', collection: @comments %>
-      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post} %>
+    </div>
+    <div class='new-commnet'>
+      <%= render partial: 'comments/form' %>
+    </div>
     <% else %>
       <h3>Sign up to Bloccit to post comments</h3>
       <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %></br></br>
