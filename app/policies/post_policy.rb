@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.present?  && (record.user == user || user.admin? || user.moderator? || user.guest?)
+    user.present? && (record.user == user || user.admin? || user.moderator? || user.guest?)
   end
 
   class Scope
