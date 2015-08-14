@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   
   def index
     @topics = Topic.visible_to(current_user).paginate(page: params[:page])
