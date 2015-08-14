@@ -1,6 +1,7 @@
 class Topics::PostsController < ApplicationController
-  skip_before_action :flash_attack, only: [:index, :new]
   before_action :authenticate_user!, except: [:show]
+  skip_before_action :flash_attack, only: [:index, :new]
+
 
   def show
     @topic = Topic.find(params[:topic_id])
