@@ -29,6 +29,16 @@
       <%= f.hidden_field :image_cache %>
     </div>
     <div class="form-group">
-      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= f.submit "Save", class: 'btn btn-success', id: "save-button" %>
+   
     </div>
   <% end %>
+
+
+   <script>
+      $("#save-button").hover(function(){metrics.report("Hover")});
+      $("this").click(function(){metrics.report("Click")});
+    </script>
+
+
+  

@@ -35,7 +35,7 @@
     <% if policy(@comments).create? %>
       <%= render partial: 'comments/comment', collection: @comments %>
     </div>
-    <div class='new-commnet'>
+    <div class='new-comment'>
       <%= render partial: 'comments/form' %>
     </div>
     <% else %>
