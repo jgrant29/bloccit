@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     authorize favorite
 
     if favorite.save
-      flash[:notice] = "Favorited \"#{post.title}\" was added to our mailing list"
+      flash[:notice] = "\"#{post.title}\" was added to our mailing list and your Bookmark tab"
       redirect_to [post.topic, post]
     else
       flash[:error] = "There was an error saving favorite.  Please try again."
